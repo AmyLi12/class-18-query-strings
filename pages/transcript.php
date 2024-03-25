@@ -58,11 +58,11 @@ $sort_css_classes = array(
   "grade_desc" => "inactive",
 );
 
-// TODO: get the "sort" query string parameter
-$sort_param = NULL;
+// Get the "sort" query string parameter
+$sort_param = $_GET["sort"];
 
-// TODO: get the "order" query string parameter
-$order_param = NULL;
+// Get the "order" query string parameter
+$order_param = $_GET["order"];
 
 // validate order parameter.
 // sort must be "course", "term", "year", or "grade"
@@ -102,8 +102,12 @@ FROM grades INNER JOIN courses ON (grades.course_id = courses.id);")->fetchAll()
     <table>
       <tr>
         <th class="column-course">
-          <!-- TODO: add "sort" and "order" query string parameters to URL -->
-          <a class="sort" href="/transcript" aria-label="Sort by Course Number">
+          <!-- Add "sort" and "order" query string parameters to URL -->
+
+          <a class="sort" href="/transcript?<?php echo http_build_query(array(
+                                              "sort" => "course",
+                                              "order" => "asc"
+                                            )) ?>" aria-label="Sort by Course Number">
             Course
             <svg class="icon" version="1.1" viewBox="0 0 2.1391 4.2339" xmlns="http://www.w3.org/2000/svg">
               <g transform="translate(-38.257 -61.073)">
@@ -115,8 +119,11 @@ FROM grades INNER JOIN courses ON (grades.course_id = courses.id);")->fetchAll()
         </th>
 
         <th class="column-term">
-          <!-- TODO: add "sort" and "order" query string parameters to URL -->
-          <a class="sort" href="/transcript" aria-label="Sort by Term">
+          <!-- Add "sort" and "order" query string parameters to URL -->
+          <a class="sort" href="/transcript?<?php echo http_build_query(array(
+                                              "sort" => "term",
+                                              "order" => "asc"
+                                            )) ?>"" aria-label="Sort by Term">
             Term
             <svg class="icon" version="1.1" viewBox="0 0 2.1391 4.2339" xmlns="http://www.w3.org/2000/svg">
               <g transform="translate(-38.257 -61.073)">
@@ -128,8 +135,11 @@ FROM grades INNER JOIN courses ON (grades.course_id = courses.id);")->fetchAll()
         </th>
 
         <th class="column-year">
-          <!-- TODO: add "sort" and "order" query string parameters to URL -->
-          <a class="sort" href="/transcript" aria-label="Sort by Academic Year">
+          <!-- Add "sort" and "order" query string parameters to URL -->
+          <a class="sort" href="/transcript?<?php echo http_build_query(array(
+                                              "sort" => "year",
+                                              "order" => "asc"
+                                            )) ?>"" aria-label="Sort by Academic Year">
             Year
             <svg class="icon" version="1.1" viewBox="0 0 2.1391 4.2339" xmlns="http://www.w3.org/2000/svg">
               <g transform="translate(-38.257 -61.073)">
@@ -141,8 +151,11 @@ FROM grades INNER JOIN courses ON (grades.course_id = courses.id);")->fetchAll()
         </th>
 
         <th class="column-credits">
-          <!-- TODO: add "sort" and "order" query string parameters to URL -->
-          <a class="sort" href="/transcript" aria-label="Sort by Academic Credits">
+          <!-- Add "sort" and "order" query string parameters to URL -->
+          <a class="sort" href="/transcript?<?php echo http_build_query(array(
+                                              "sort" => "credits",
+                                              "order" => "asc"
+                                            )) ?>"" aria-label="Sort by Academic Credits">
             Credits
             <svg class="icon" version="1.1" viewBox="0 0 2.1391 4.2339" xmlns="http://www.w3.org/2000/svg">
               <g transform="translate(-38.257 -61.073)">
@@ -154,8 +167,11 @@ FROM grades INNER JOIN courses ON (grades.course_id = courses.id);")->fetchAll()
         </th>
 
         <th class="column-grade">
-          <!-- TODO: add "sort" and "order" query string parameters to URL -->
-          <a class="sort" href="/transcript" aria-label="Sort by Grade">
+          <!-- Add "sort" and "order" query string parameters to URL -->
+          <a class="sort" href="/transcript?<?php echo http_build_query(array(
+                                              "sort" => "grade",
+                                              "order" => "asc"
+                                            )) ?>"" aria-label="Sort by Grade">
             Grade
             <svg class="icon" version="1.1" viewBox="0 0 2.1391 4.2339" xmlns="http://www.w3.org/2000/svg">
               <g transform="translate(-38.257 -61.073)">
